@@ -18,12 +18,12 @@ def save_data(data, option='json'):
     now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S.%f")
     
     if option == 'json':
-        with open(f"/mnt/datalake/TabNews/contents/json/{now}.json", 'w') as open_file:
+        with open(f"./mnt/datalake/TabNews/contents/json/{now}.json", 'w') as open_file:
             json.dump(data, open_file, indent=4)
 
     elif option == 'parquet':
         df = pd.DataFrame(data)
-        df.to_parquet(f"/mnt/datalake/TabNews/contents/parquet/{now}.parquet", index=False)
+        df.to_parquet(f"./mnt/datalake/TabNews/contents/parquet/{now}.parquet", index=False)
 
 
 # %%
@@ -49,3 +49,5 @@ while True:
         print(resp.json())
         time.sleep(60 * 15)
 # %%
+
+pd.read_json("./mnt/datalake/TabNews/contents/json/20240805_163112.524033.json")
