@@ -12,3 +12,6 @@ df = (
 
 
 df
+
+# %%
+pd.read_html('https://fbref.com/en/comps/24/Serie-A-Stats')[1]
